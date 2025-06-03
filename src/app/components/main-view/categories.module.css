@@ -1,0 +1,46 @@
+.categories h2 {
+  font-size: 24px;
+  font-weight: 600;
+  margin-bottom: 16px;
+}
+
+.categoryGrid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 16px;
+}
+
+.categoryCard {
+  background-color: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  padding: 24px;
+  text-align: center;
+  cursor: pointer;
+  transition: box-shadow 0.3s;
+  margin-bottom: 20px;
+}
+
+.categoryCard:hover {
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.4);
+  border: 2px solid #2563eb;
+}
+
+.categoryCardActive {
+  border: 2px solid #2563eb;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.4);
+}
+
+.categoryIcon {
+  font-size: 32px;
+  color: #6b7280;
+  margin-bottom: 12px;
+}
+
+.categoryIconActive {
+  color: #2563eb;
+}
+
+.categoryTitleActive {
+  color: #2563eb;
+}
