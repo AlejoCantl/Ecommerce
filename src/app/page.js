@@ -6,62 +6,61 @@ import Categories from '@/app/components/main-view/Categories';
 import Products from '@/app/components/Products';
 import Footer from '@/app/components/Footer';
 import styles from './page.module.css';	
+import { useCart } from './components/cart-view/CartContext';
 
 const Home = () => {
-  const [cartCount, setCartCount] = useState(0);
   const [searchQuery, setSearchQuery] = useState('');
-  const [isCartOpen, setIsCartOpen] = useState(false);
-  const [cartItems, setCartItems] = useState([]);
   const [selectedCategory, setSelectedCategory] = useState('Todos');
   const [isUserMenuOpen, setIsUserMenuOpen] = useState(false);
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [userName] = useState('Usuario');
+  const {setIsCartOpen} = useCart();
 
-  const addToCart = (product) => {
-    const existingItem = cartItems.find((item) => item.id === product.id);
-    if (existingItem) {
-      setCartItems(
-        cartItems.map((item) =>
-          item.id === product.id ? { ...item, quantity: item.quantity + 1 } : item
-        )
-      );
-    } else {
-      setCartItems([...cartItems, { ...product, quantity: 1 }]);
-    }
-    setCartCount((prev) => prev + 1);
-  };
+  // const addToCart = (product) => {
+  //   const existingItem = cartItems.find((item) => item.id === product.id);
+  //   if (existingItem) {
+  //     setCartItems(
+  //       cartItems.map((item) =>
+  //         item.id === product.id ? { ...item, quantity: item.quantity + 1 } : item
+  //       )
+  //     );
+  //   } else {
+  //     setCartItems([...cartItems, { ...product, quantity: 1 }]);
+  //   }
+  //   setCartCount((prev) => prev + 1);
+  // };
 
-  const removeFromCart = (productId) => {
-    const item = cartItems.find((item) => item.id === productId);
-    if (item) {
-      setCartCount((prev) => prev - item.quantity);
-      setCartItems(cartItems.filter((item) => item.id !== productId));
-    }
-  };
+  // const removeFromCart = (productId) => {
+  //   const item = cartItems.find((item) => item.id === productId);
+  //   if (item) {
+  //     setCartCount((prev) => prev - item.quantity);
+  //     setCartItems(cartItems.filter((item) => item.id !== productId));
+  //   }
+  // };
 
-  const updateQuantity = (productId, newQuantity) => {
-    if (newQuantity < 1) return;
-    const item = cartItems.find((item) => item.id === productId);
-    if (item) {
-      setCartItems(
-        cartItems.map((item) =>
-          item.id === productId ? { ...item, quantity: newQuantity } : item
-        )
-      );
-      setCartCount(
-        cartItems.reduce((total, item) =>
-          item.id === productId
-            ? total - item.quantity + newQuantity
-            : total + item.quantity,
-          0
-        )
-      );
-    }
-  };
+  // const updateQuantity = (productId, newQuantity) => {
+  //   if (newQuantity < 1) return;
+  //   const item = cartItems.find((item) => item.id === productId);
+  //   if (item) {
+  //     setCartItems(
+  //       cartItems.map((item) =>
+  //         item.id === productId ? { ...item, quantity: newQuantity } : item
+  //       )
+  //     );
+  //     setCartCount(
+  //       cartItems.reduce((total, item) =>
+  //         item.id === productId
+  //           ? total - item.quantity + newQuantity
+  //           : total + item.quantity,
+  //         0
+  //       )
+  //     );
+  //   }
+  // };
 
-  const calculateTotal = () => {
-    return cartItems.reduce((total, item) => total + item.price * item.quantity, 0);
-  };
+  // const calculateTotal = () => {
+  //   return cartItems.reduce((total, item) => total + item.price * item.quantity, 0);
+  // };
 
   const products = [
     {
@@ -129,7 +128,6 @@ const Home = () => {
   return (
     <div className={styles.app}>
       <Navbar
-        cartCount={cartCount}
         searchQuery={searchQuery}
         setSearchQuery={setSearchQuery}
         setIsCartOpen={setIsCartOpen}
@@ -140,12 +138,7 @@ const Home = () => {
         userName={userName}
       />
       <CartModal
-        isCartOpen={isCartOpen}
         setIsCartOpen={setIsCartOpen}
-        cartItems={cartItems}
-        updateQuantity={updateQuantity}
-        removeFromCart={removeFromCart}
-        calculateTotal={calculateTotal}
       />
       <main className={styles.main}>
         <Categories
@@ -156,7 +149,6 @@ const Home = () => {
           products={products}
           selectedCategory={selectedCategory}
           searchQuery={searchQuery}
-          addToCart={addToCart}
         />
       </main>
       <Footer />

@@ -1,8 +1,10 @@
-"use client";
 import Image from 'next/image';
 import styles from './product.module.css';
+import { useCart } from './cart-view/CartContext'; // Adjust the import path as necessary
 
-const Products = ({ products, selectedCategory, searchQuery, addToCart }) => {
+const Products = ({products, selectedCategory, searchQuery }) => {
+  const {addToCart} = useCart();
+
   return (
     <div className={styles.productsGrid}>
       {products

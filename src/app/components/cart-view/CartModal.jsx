@@ -1,13 +1,10 @@
 import styles from './cartModal.module.css';
+import { useCart } from './CartContext'; // Adjust the import path as necessary
 
 const CartModal = ({
-  isCartOpen,
   setIsCartOpen,
-  cartItems,
-  updateQuantity,
-  removeFromCart,
-  calculateTotal,
 }) => {
+  const {isCartOpen, cart: cartItems, removeFromCart, updateQuantity, getTotalPrice: calculateTotal} = useCart();
   return (
     <>
       {isCartOpen && (
@@ -23,12 +20,12 @@ const CartModal = ({
                 <i className="fas fa-times"></i>
               </button>
             </div>
-            {cartItems.length === 0 ? (
+            {cartItems.items.length === 0 ? (
               <p className={styles.emptyCart}>Tu carrito está vacío</p>
             ) : (
               <>
                 <div className={styles.cartItems}>
-                  {cartItems.map((item) => (
+                  {cartItems.items.map((item) => (
                     <div key={item.id} className={styles.cartItem}>
                       <img
                         src={item.image}
