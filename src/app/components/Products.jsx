@@ -1,6 +1,6 @@
 "use client";
 import Image from 'next/image';
-import styles from './styles.module.css';
+import styles from './product.module.css';
 
 const Products = ({ products, selectedCategory, searchQuery, addToCart }) => {
   return (

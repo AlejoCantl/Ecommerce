@@ -1,0 +1,40 @@
+.footer {
+  background-color: #ffffff;
+  border-top: 1px solid #e5e7eb;
+}
+
+.footerContainer {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 32px 16px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 32px;
+}
+
+.footerList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.footerList li {
+  color: #6b7280;
+  margin-bottom: 8px;
+}
+
+.paymentIcons,
+.socialIcons {
+  display: flex;
+  gap: 16px;
+  color: #6b7280;
+  font-size: 24px;
+}
+
+.footerBottom {
+  margin-top: 32px;
+  padding-top: 32px;
+  border-top: 1px solid #e5e7eb;
+  text-align: center;
+  color: #6b7280;
+}

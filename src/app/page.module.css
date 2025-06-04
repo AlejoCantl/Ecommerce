@@ -2,3 +2,9 @@
   min-height: 100dvh;
   /* background-color: #f7fafc; */
 }
+
+.main {
+  padding: 80px 16px 48px;
+  max-width: 1280px;
+  margin: 0 auto;
+}

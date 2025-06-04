@@ -5,7 +5,7 @@ import CartModal from '@/app/components/cart-view/CartModal';
 import Categories from '@/app/components/main-view/Categories';
 import Products from '@/app/components/Products';
 import Footer from '@/app/components/Footer';
-import styles from './components/styles.module.css';
+import styles from './page.module.css';	
 
 const Home = () => {
   const [cartCount, setCartCount] = useState(0);

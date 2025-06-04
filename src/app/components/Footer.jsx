@@ -1,5 +1,5 @@
 import '@fortawesome/fontawesome-free/css/all.min.css';
-import styles from './styles.module.css';
+import styles from './footer.module.css';
 
 const Footer = () => {
   return (
