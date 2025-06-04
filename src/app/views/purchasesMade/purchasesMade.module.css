@@ -1,0 +1,83 @@
+.container {
+  max-width: 1200px;
+  margin: 20px auto;
+  padding: 20px;
+  background-color: #f4f4f4;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+}
+
+.title {
+  text-align: center;
+  font-size: 24px;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 15px;
+}
+
+.tableContainer {
+  overflow-x: auto;
+}
+
+.productTable {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: #fff;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.productTable th,
+.productTable td {
+  padding: 12px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+}
+
+.productTable th {
+  background: #333;
+  color: white;
+}
+
+.productCell {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.productImage {
+  width: 50px;
+  height: 50px;
+  object-fit: cover;
+  border-radius: 5px;
+}
+
+/* .productTable td {
+    text-align: center;
+    vertical-align: middle;
+} */
+
+.productTable th:nth-child(2),
+.productTable th:nth-child(3) {
+    text-align: center;
+    vertical-align: middle;
+}
+
+
+.productTable td:nth-child(2) {
+  font-weight: bold;
+  color: #28a745;
+  text-align: center;
+  vertical-align: middle;
+}
+
+.productTable td:nth-child(3) {
+  font-weight: bold;
+  color: #333;
+  text-align: center;
+  vertical-align: middle;
+}
+
+.alinearText{
+    text-align: center;
+    vertical-align: middle;
+}
