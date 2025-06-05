@@ -48,7 +48,7 @@ const Navbar = () => {
                       <i className="fas fa-user-circle"></i> Mi Perfil
                     </Link>
                     <Link
-                      href="https://readdy.ai/home/eee6cda2-75a6-42e3-a8e4-a928e00069c0/9043d736-7b76-4ead-b259-b61319f702c1"
+                      href="/views/purchasesMade"
                       data-readdy="true"
                       className={styles.dropdownItem}
                     >
