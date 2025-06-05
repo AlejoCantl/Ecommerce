@@ -17,7 +17,7 @@ export default async function Home() {
     categories = await fetchData('http://localhost:8000/categories', 'GET', {
       next: { revalidate: 60 }, // Incremental Static Regeneration (ISR)
     });
-    categories = ['Todos', ...categories.map(category => category.nombre)];
+    categories = ['Todos', ...new Set(categories.map(category => category.nombre))];
   } catch (error) {
     console.error('Error fetching products:', error);
     products = [];
