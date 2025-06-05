@@ -4,6 +4,7 @@ import { usePathname } from "next/navigation";
 const NavBarContext = createContext();
 
 export const NavBarProvider = ({ children }) => {
+  // Estados para manejar la barra de navegación se movieron al contexto
   const [searchQuery, setSearchQuery] = useState('');
   const [isUserMenuOpen, setIsUserMenuOpen] = useState(false);
   const [isAuthenticated, setIsAuthenticated] = useState(false);

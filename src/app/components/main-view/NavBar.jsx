@@ -5,6 +5,8 @@ import { useCart } from '../cart-view/CartContext'; // Adjust the import path as
 import { useNavBarContext } from './NavBarContext';
 import Link from 'next/link';
 const Navbar = () => {
+  // consumiendo el contexto de la barra de navegación
+  // y el contexto del carrito
   const { isPurchasePage, setIsUserMenuOpen, searchQuery, isAuthenticated, setIsAuthenticated, userName, isUserMenuOpen, setSearchQuery } = useNavBarContext();
   const {getTotalItems: cartCount, setIsCartOpen} = useCart();
   return (

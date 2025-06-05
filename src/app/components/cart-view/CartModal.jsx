@@ -3,6 +3,8 @@ import styles from './cartModal.module.css';
 import { useCart } from './CartContext'; // Adjust the import path as necessary
 
 const CartModal = () => {
+  // consumiendo el contexto del carrito
+  // para manejar el estado del carrito y las acciones
   const {isCartOpen, cart: cartItems, removeFromCart, updateQuantity, getTotalPrice: calculateTotal, setIsCartOpen} = useCart();
   return (
     <>

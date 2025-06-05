@@ -24,6 +24,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="es">
       <body className={`${geistSans.variable} ${geistMono.variable}`}>
+        {/* Proveedor del contexto del Navbar y el carro a todos los lados importados*/}
       <NavBarProvider>
         <CartProvider>
         {children}
