@@ -1,10 +1,11 @@
+"use client"
 import styles from './cartModal.module.css';
 import { useCart } from './CartContext'; // Adjust the import path as necessary
 
-const CartModal = ({
-  setIsCartOpen,
-}) => {
-  const {isCartOpen, cart: cartItems, removeFromCart, updateQuantity, getTotalPrice: calculateTotal} = useCart();
+const CartModal = () => {
+  // consumiendo el contexto del carrito
+  // para manejar el estado del carrito y las acciones
+  const {isCartOpen, cart: cartItems, removeFromCart, updateQuantity, getTotalPrice: calculateTotal, setIsCartOpen} = useCart();
   return (
     <>
       {isCartOpen && (
@@ -63,7 +64,7 @@ const CartModal = ({
                 <div className={styles.cartFooter}>
                   <div className={styles.cartTotal}>
                     <span>Total:</span>
-                    <span>${calculateTotal().toFixed(2)}</span>
+                    <span>${calculateTotal.toFixed(2)}</span>
                   </div>
                   <button className={styles.checkoutButton}>Proceder al Pago</button>
                 </div>

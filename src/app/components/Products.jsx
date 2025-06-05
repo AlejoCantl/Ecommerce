@@ -1,10 +1,11 @@
 import Image from 'next/image';
 import styles from './product.module.css';
 import { useCart } from './cart-view/CartContext'; // Adjust the import path as necessary
+import { useNavBarContext } from './main-view/NavBarContext'; // Adjust the import path as necessary
 
-const Products = ({products, selectedCategory, searchQuery }) => {
+const Products = ({products, selectedCategory }) => {
   const {addToCart} = useCart();
-
+  const { searchQuery } = useNavBarContext();
   return (
     <div className={styles.productsGrid}>
       {products
@@ -24,6 +25,7 @@ const Products = ({products, selectedCategory, searchQuery }) => {
                 layout="fill"
                 objectFit="cover"
                 className={styles.productImage}
+                sizes="(max-width: 400px) 100vw, 400px"
               />
             </div>
             <div className={styles.productDetails}>
