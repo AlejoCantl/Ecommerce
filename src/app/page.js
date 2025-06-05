@@ -6,15 +6,14 @@ import Categories from '@/app/components/main-view/Categories';
 import Products from '@/app/components/Products';
 import Footer from '@/app/components/Footer';
 import styles from './page.module.css';	
-import { useCart } from './components/cart-view/CartContext';
 
 const Home = () => {
-  const [searchQuery, setSearchQuery] = useState('');
+  // const [searchQuery, setSearchQuery] = useState('');
   const [selectedCategory, setSelectedCategory] = useState('Todos');
-  const [isUserMenuOpen, setIsUserMenuOpen] = useState(false);
-  const [isAuthenticated, setIsAuthenticated] = useState(false);
-  const [userName] = useState('Usuario');
-  const {setIsCartOpen} = useCart();
+  // const [isUserMenuOpen, setIsUserMenuOpen] = useState(false);
+  // const [isAuthenticated, setIsAuthenticated] = useState(false);
+  // const [userName] = useState('Usuario');
+  //const {setIsCartOpen} = useCart();
 
   // const addToCart = (product) => {
   //   const existingItem = cartItems.find((item) => item.id === product.id);
@@ -128,17 +127,17 @@ const Home = () => {
   return (
     <div className={styles.app}>
       <Navbar
-        searchQuery={searchQuery}
-        setSearchQuery={setSearchQuery}
-        setIsCartOpen={setIsCartOpen}
-        isUserMenuOpen={isUserMenuOpen}
-        setIsUserMenuOpen={setIsUserMenuOpen}
-        isAuthenticated={isAuthenticated}
-        setIsAuthenticated={setIsAuthenticated}
-        userName={userName}
+        // searchQuery={searchQuery}
+        // setSearchQuery={setSearchQuery}
+        // setIsCartOpen={setIsCartOpen}
+        // isUserMenuOpen={isUserMenuOpen}
+        // setIsUserMenuOpen={setIsUserMenuOpen}
+        // isAuthenticated={isAuthenticated}
+        // setIsAuthenticated={setIsAuthenticated}
+        // userName={userName}
       />
       <CartModal
-        setIsCartOpen={setIsCartOpen}
+        //setIsCartOpen={setIsCartOpen}
       />
       <main className={styles.main}>
         <Categories
@@ -148,7 +147,7 @@ const Home = () => {
         <Products
           products={products}
           selectedCategory={selectedCategory}
-          searchQuery={searchQuery}
+    //    searchQuery={searchQuery}
         />
       </main>
       <Footer />
