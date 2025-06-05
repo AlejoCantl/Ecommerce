@@ -1,3 +1,4 @@
+"use client"
 import '@fortawesome/fontawesome-free/css/all.min.css';
 import styles from './navbar.module.css';
 import { useCart } from '../cart-view/CartContext'; // Adjust the import path as necessary

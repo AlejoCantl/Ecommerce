@@ -1,3 +1,4 @@
+"use client"
 import styles from './cartModal.module.css';
 import { useCart } from './CartContext'; // Adjust the import path as necessary
 

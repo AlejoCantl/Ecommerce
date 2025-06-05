@@ -1,7 +1,7 @@
-"use client";
 import styles from './purchasesMade.module.css';
 import NavBar from '@/app/components/main-view/NavBar';
 import CartModal from '@/app/components/cart-view/CartModal';
+import Image from 'next/image';
 const products = [
   { id: 1, name: 'Teléfono Inteligente Premium', price: 799.99, image: 'https://readdy.ai/api/search-image?query=modern%20premium%20smartphone%20with%20sleek%20design%20on%20minimal%20light%20gray%20background%20perfect%20product%20photography%20with%20soft%20shadows%20and%20clean%20composition&width=400&height=400&seq=1&orientation=squarish' },
   { id: 2, name: 'Laptop Ultradelgada', price: 1299.99, image: 'https://readdy.ai/api/search-image?query=sleek%20modern%20laptop%20with%20metallic%20finish%20on%20minimal%20light%20gray%20background%20perfect%20product%20photography%20with%20soft%20shadows%20and%20clean%20composition&width=400&height=400&seq=2&orientation=squarish' },
@@ -55,7 +55,7 @@ export default function PurchasedProducts() {
               return (
                 <tr key={id}>
                   <td className={styles.productCell}>
-                    <img src={product.image} alt={product.name} className={styles.productImage} />
+                    <Image width={50} height={50} src={product.image} alt={product.name} className={styles.productImage} />
                     {product.name}
                   </td>
                   <td>${product.price.toFixed(2)}</td>
