@@ -1,10 +1,9 @@
-.main{
-  padding: 80px 16px 48px;
-  max-width: 1280px;
+.main {
+  padding: 80px 16px 10px 16px;
 }
 .container {
-  max-width: 1200px;
-  margin: 20px auto;
+  max-width: 1300px;
+  max-height: 600px;
   padding: 20px;
   background-color: #f4f4f4;
   border-radius: 10px;
@@ -26,8 +25,15 @@
 .productTable {
   width: 100%;
   border-collapse: collapse;
-  background-color: #fff;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.columns1 {
+  border-radius: 12px 0 0 0;
+}
+
+.columns2 {
+  border-radius: 0 12px 0 0;
 }
 
 .productTable th,
@@ -53,11 +59,6 @@
   border-radius: 5px;
 }
 
-/* .productTable td {
-    text-align: center;
-    vertical-align: middle;
-} */
-
 .productTable th:nth-child(2),
 .productTable th:nth-child(3) {
     text-align: center;
@@ -79,7 +80,17 @@
   vertical-align: middle;
 }
 
-.alinearText{
-    text-align: center;
-    vertical-align: middle;
+.productTable td {
+  padding: 10px !important;
+  border: none !important;
 }
+
+
+.fila{
+  background-color: #fff;
+}
+
+.fila td {
+  height: 70px;
+}
+

@@ -35,39 +35,39 @@ const mergedPurchases = purchases.reduce((acc, item) => {
 export default function PurchasedProducts() {
   return (
     <>
-    <NavBar/>
-    <CartModal/>
-    <main className={styles.main}>
-    <div className={styles.container}>
-      <h1 className={styles.title}>Compras realizadas</h1>
-      <div className={styles.tableContainer}>
-        <table className={styles.productTable}>
-          <thead>
-            <tr>
-              <th>Producto</th>
-              <th>Precio</th>
-              <th>Cantidad</th>
-            </tr>
-          </thead>
-          <tbody>
-            {mergedPurchases.map(({ id, quantity }) => {
-              const product = products.find(p => p.id === id);
-              return (
-                <tr key={id}>
-                  <td className={styles.productCell}>
-                    <Image width={50} height={50} src={product.image} alt={product.name} className={styles.productImage} />
-                    {product.name}
-                  </td>
-                  <td>${product.price.toFixed(2)}</td>
-                  <td className={styles.alinearText}>{quantity}</td>
+      <NavBar/>
+      <CartModal/>
+      <main className={styles.main}>
+        <div className={styles.container}>
+          <h1 className={styles.title}>Compras realizadas</h1>
+          <div className={styles.tableContainer}>
+            <table className={styles.productTable}>
+              <thead>
+                <tr>
+                  <th className={styles.columns1}>Producto</th>
+                  <th>Precio</th>
+                  <th className={styles.columns2}>Cantidad</th>
                 </tr>
-              );
-            })}
-          </tbody>
-        </table>
-      </div>
-    </div>
-    </main>
+              </thead>
+              <tbody>
+                {mergedPurchases.map(({ id, quantity }) => {
+                  const product = products.find(p => p.id === id);
+                  return (
+                    <tr key={id} className={styles.fila}>
+                      <td className={styles.productCell}>
+                        <Image width={50} height={50} src={product.image} alt={product.name} className={styles.productImage} />
+                        {product.name}
+                      </td>
+                      <td>${product.price.toFixed(2)}</td>
+                      <td className={styles.alinearText}>{quantity}</td>
+                    </tr>
+                  );
+                })}
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </main>
     </>
   );
 };
