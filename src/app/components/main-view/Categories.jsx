@@ -1,8 +1,6 @@
 import styles from './categories.module.css';
-
-const Categories = ({ selectedCategory, setSelectedCategory }) => {
-  const categories = ['Todos', 'Teléfonos', 'Laptops', 'Auriculares', 'Accesorios'];
-
+const Categories = ({ selectedCategory, setSelectedCategory, categories }) => {
+  
   return (
     <div className={styles.categories}>
       <h2>Categorías</h2>

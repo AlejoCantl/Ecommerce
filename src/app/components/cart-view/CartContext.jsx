@@ -1,5 +1,4 @@
 "use client";
-
 import { createContext, useContext, useReducer, useState, useCallback, useMemo } from 'react';
 
 const CartContext = createContext();
@@ -79,7 +78,7 @@ export function CartProvider({ children }) {
   }, [cart.items]);
 
   const getTotalPrice = useMemo(() => {
-    return cart.items.reduce((total, item) => total + (item.price * item.quantity), 0);
+    return cart.items.reduce((total, item) => total + (item.precio * item.quantity), 0);
   }, [cart.items]);
 
   const value = {

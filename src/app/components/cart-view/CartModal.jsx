@@ -1,6 +1,7 @@
 "use client"
 import styles from './cartModal.module.css';
 import { useCart } from './CartContext'; // Adjust the import path as necessary
+import Image from 'next/image';
 
 const CartModal = () => {
   // consumiendo el contexto del carrito
@@ -28,14 +29,16 @@ const CartModal = () => {
                 <div className={styles.cartItems}>
                   {cartItems.items.map((item) => (
                     <div key={item.id} className={styles.cartItem}>
-                      <img
-                        src={item.image}
-                        alt={item.name}
+                      <Image
+                        width={80}
+                        height={80}
+                        src={item.imagen}
+                        alt={item.nombre}
                         className={styles.cartItemImage}
                       />
                       <div className={styles.cartItemDetails}>
-                        <h4>{item.name}</h4>
-                        <p>${item.price}</p>
+                        <h4>{item.nombre}</h4>
+                        <p>${item.precio}</p>
                         <div className={styles.quantityControls}>
                           <button
                             onClick={() => updateQuantity(item.id, item.quantity - 1)}
