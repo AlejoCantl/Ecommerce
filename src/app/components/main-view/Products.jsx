@@ -26,10 +26,11 @@ const Products = ({ products, selectedCategory }) => {
               <Image
                 src={product.imagen}
                 alt={product.nombre}
-                layout="fill"
-                objectFit="cover"
+                width={400}
+                height={400}
                 className={styles.productImage}
                 sizes="(max-width: 400px) 100vw, 400px"
+                priority= {product.id <= 2} // Optimize LCP for first few images
               />
             </div>
             <div className={styles.productDetails}>

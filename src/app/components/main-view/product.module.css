@@ -32,11 +32,11 @@
   aspect-ratio: 1/1;
   position: relative;
   width: 100%;
-  padding-top: 100%;
+  padding: 0;
 }
 
 .productImage {
-  object-fit: cover;
+  object-fit: cover; /* Replaces objectFit="cover" */
 }
 
 .productDetails {
