@@ -9,7 +9,7 @@ export const NavBarProvider = ({ children }) => {
   const [searchQuery, setSearchQuery] = useState('');
   const [isUserMenuOpen, setIsUserMenuOpen] = useState(false);
   const [isAuthenticated, setIsAuthenticated] = useState(false);
-  const [userName, setUserName] = useState('');
+  const [userName, setUserName] = useState({nombre: '', id_user: ''});
   const [showLoginModal, setShowLoginModal] = useState(false);
 
     const pathname = usePathname();
@@ -17,16 +17,16 @@ export const NavBarProvider = ({ children }) => {
     const isPurchasePage = pathname.split('/').length === 0 || pathname === '/';
     
     // Función para manejar login exitoso
-    const handleLogin = (username) => {
+    const handleLogin = (username, id_user) => {
         setIsAuthenticated(true);
-        setUserName(username);
+        setUserName({nombre: username, id_user: id_user});
         setShowLoginModal(false);
     };
 
     // Función para manejar logout
     const handleLogout = () => {
         setIsAuthenticated(false);
-        setUserName('');
+        setUserName({nombre: '', id_user: ''});
         setIsUserMenuOpen(false);
         router.push('/');
     };

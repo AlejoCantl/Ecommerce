@@ -57,3 +57,63 @@ export const loginHandler = async (username, password) => {
     };
   }
 };
+
+export const cartHandler = async (cartItems, id_user) => {
+  const url = 'http://localhost:8000/cart';
+  const method = 'POST';
+
+  // Ensure cartItems is an array and add id_user to each item if not present
+  const items = Array.isArray(cartItems)
+    ? cartItems.map(item => ({
+        id_user: id_user, // Use item.id_user if available, otherwise use id_user
+        id_product: item.id_product,
+        quantity: item.quantity
+      }))
+    : [];
+
+  // Validate that there are items to send
+  if (!items.length) {
+    return {
+      status: 'error',
+      error: 'No items provided to add to cart',
+      ok: false
+    };
+  }
+
+  const body = JSON.stringify({ items });
+
+  try {
+    const response = await fetch(url, {
+      method: method,
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: body,
+    });
+
+    if (!response.ok) {
+      let errorData;
+      try {
+        errorData = await response.json();
+        throw new Error(errorData.detail || `HTTP error! Status: ${response.status}`);
+      } catch {
+        throw new Error(`HTTP error! Status: ${response.status}`);
+      }
+    }
+
+    const data = await response.json();
+    return {
+      status: data.status,
+      msg: data.msg,
+      data: data.data,
+      ok: data.status === 'ok'
+    };
+  } catch (error) {
+    console.error('Error during cart operation:', error);
+    return {
+      status: 'error',
+      error: error.message,
+      ok: false
+    };
+  }
+};

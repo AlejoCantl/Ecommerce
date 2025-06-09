@@ -1,6 +1,6 @@
 "use client";
 import { createContext, useContext, useReducer, useState, useCallback, useMemo } from 'react';
-
+import { cartHandler } from '@/utils/request';
 const CartContext = createContext();
 
 const cartReducer = (state, action) => {
@@ -90,7 +90,7 @@ export function CartProvider({ children }) {
     getTotalItems,
     getTotalPrice,
     isCartOpen,
-    setIsCartOpen
+    setIsCartOpen,
   };
 
   return (

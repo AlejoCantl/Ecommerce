@@ -28,9 +28,9 @@ export const LoginModal = () => {
 
       // Si el inicio de sesión es exitoso, actualiza el estado del contexto
       console.log('Inicio de sesión exitoso:', loginData.data.msg);
-      const { nombre } = loginData.data.user;
+      const { nombre, id } = loginData.data.user;
       console.log('Nombre de usuario:', nombre);
-      handleLogin(nombre);
+      handleLogin(nombre, id);
 
       setShowLoginModal(false);
     }catch (error) {

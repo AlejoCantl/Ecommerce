@@ -21,6 +21,7 @@ const Navbar = () => {
     handleLogout
   } = useNavBarContext();
 
+  const {nombre} = userName;
   const {getTotalItems: cartCount, setIsCartOpen} = useCart();
   
   return (
@@ -55,7 +56,7 @@ const Navbar = () => {
                 {isAuthenticated ? (
                   <>
                     <div className={styles.userInfo}>
-                      <p>Hola, {userName}</p>
+                      <p>Hola, {nombre}</p>
                     </div>
                     <Link
                       href="https://readdy.ai/home/eee6cda2-75a6-42e3-a8e4-a928e00069c0/8163e82a-1ace-4439-93e6-692486cd4a9e"
