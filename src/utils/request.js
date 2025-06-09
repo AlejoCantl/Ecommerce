@@ -20,3 +20,40 @@ export const fetchData = async (url, method = 'GET') => {
     throw error;
   }
 };
+
+
+export const loginHandler = async (username, password) => {
+  const url = 'http://localhost:8000/login';
+  const method = 'POST';
+  const body = JSON.stringify({ 
+    nombre_usuario: username, 
+    contraseña: password 
+  });
+
+  try {
+    const response = await fetch(url, {
+      method: method,
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: body,
+    });
+
+    // Procesar la respuesta para obtener un objeto plano
+    const data = await response.json();
+
+    return {
+      status: response.status,
+      data: data, // Los datos devueltos por la API
+      ok: response.ok,
+      msg : response.msg
+    };
+  } catch (error) {
+    console.error('Error during login:', error);
+    return {
+      status: 500,
+      error: error.message,
+      ok: false,
+    };
+  }
+};

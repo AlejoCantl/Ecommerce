@@ -3,18 +3,40 @@
 import { useState } from 'react';
 import { useNavBarContext } from '../../components/main-view/NavBarContext';
 import styles from './loginModal.module.css';
-
+import { loginHandler } from '@/utils/request'; // Asegúrate de que esta ruta sea correcta
 export const LoginModal = () => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const { handleLogin, setShowLoginModal } = useNavBarContext();
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    handleLogin(username);
 
-    setShowLoginModal(false);
-  };
+    if (!username || !password) {
+      alert('Por favor, completa todos los campos.');
+      return;
+    }
+
+    try {
+      const loginData = await loginHandler(username, password);
+
+      if (!loginData.ok) {
+        console.error('Error al iniciar sesión:', loginData.error || 'Error desconocido');
+        alert('Error al iniciar sesión. Por favor, intenta de nuevo.');
+        return;
+      }
+
+      // Si el inicio de sesión es exitoso, actualiza el estado del contexto
+      console.log('Inicio de sesión exitoso:', loginData.data.msg);
+      const { nombre } = loginData.data.user;
+      console.log('Nombre de usuario:', nombre);
+      handleLogin(nombre);
+
+      setShowLoginModal(false);
+    }catch (error) {
+      console.error('Error en handleSubmit:', error);
+    }
+  }
 
   return (
     <div className={styles.modalOverlay} onClick={() => setShowLoginModal(false)}>
