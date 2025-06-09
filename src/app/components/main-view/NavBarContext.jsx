@@ -1,6 +1,7 @@
 "use client";
 import { createContext, useContext, useState } from "react";
-import { usePathname } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
+
 const NavBarContext = createContext();
 
 export const NavBarProvider = ({ children }) => {
@@ -8,11 +9,28 @@ export const NavBarProvider = ({ children }) => {
   const [searchQuery, setSearchQuery] = useState('');
   const [isUserMenuOpen, setIsUserMenuOpen] = useState(false);
   const [isAuthenticated, setIsAuthenticated] = useState(false);
-  const [userName] = useState('Usuario');
+  const [userName, setUserName] = useState('');
+  const [showLoginModal, setShowLoginModal] = useState(false);
 
     const pathname = usePathname();
+    const router = useRouter();
     const isPurchasePage = pathname.split('/').length === 0 || pathname === '/';
     
+    // Función para manejar login exitoso
+    const handleLogin = (username) => {
+        setIsAuthenticated(true);
+        setUserName(username);
+        setShowLoginModal(false);
+    };
+
+    // Función para manejar logout
+    const handleLogout = () => {
+        setIsAuthenticated(false);
+        setUserName('');
+        setIsUserMenuOpen(false);
+        router.push('/');
+    };
+
     const value = {
         searchQuery,
         setSearchQuery,
@@ -21,7 +39,11 @@ export const NavBarProvider = ({ children }) => {
         isAuthenticated,
         setIsAuthenticated,
         userName,
-        isPurchasePage
+        isPurchasePage,
+        showLoginModal,
+        setShowLoginModal,
+        handleLogin,
+        handleLogout
     };
 
     return (
@@ -37,4 +59,4 @@ export const useNavBarContext = () => {
         throw new Error("useNavBarContext must be used within a NavBarProvider");
     }
     return context;
-    }
+}

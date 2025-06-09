@@ -7,11 +7,12 @@ const CartModal = () => {
   // consumiendo el contexto del carrito
   // para manejar el estado del carrito y las acciones
   const {isCartOpen, cart: cartItems, removeFromCart, updateQuantity, getTotalPrice: calculateTotal, setIsCartOpen} = useCart();
+  if (!isCartOpen) return null; // No renderizar si el carrito está cerrado
+
   return (
     <>
-      {isCartOpen && (
-        <div className={styles.cartModal}>
-          <div className={styles.cartModalOverlay} onClick={() => setIsCartOpen(false)}></div>
+        <div className={styles.cartModalOverlay} onClick={() => setIsCartOpen(false)}></div>
+        <div className={styles.cartModal} onClick={(e) => e.stopPropagation()} /*¡Nuevo! Evita que el clic se propague al overlay*/>
           <div className={styles.cartModalContent}>
             <div className={styles.cartHeader}>
               <h3>Carrito de Compras</h3>
@@ -69,13 +70,12 @@ const CartModal = () => {
                     <span>Total:</span>
                     <span>${calculateTotal.toFixed(2)}</span>
                   </div>
-                  <button className={styles.checkoutButton}>Proceder al Pago</button>
+                  <button className={styles.checkoutButton}>Comprar</button>
                 </div>
               </>
             )}
           </div>
         </div>
-      )}
     </>
   );
 };

@@ -28,9 +28,9 @@ export default async function Home() {
     <div className={styles.app}>
       <Navbar />
       <CartModal />
-      <main className={styles.main}>
-        <CategoriesWrapper products={products} categories={categories} />
-      </main>
+        <main className={styles.main}>
+          <CategoriesWrapper products={products} categories={categories} />
+        </main>
       <Footer />
     </div>
   );

@@ -4,11 +4,25 @@ import styles from './navbar.module.css';
 import { useCart } from '../cart-view/CartContext'; // Adjust the import path as necessary
 import { useNavBarContext } from './NavBarContext';
 import Link from 'next/link';
+import { LoginModal } from '../login-modal/LoginModal';
+
 const Navbar = () => {
-  // consumiendo el contexto de la barra de navegación
-  // y el contexto del carrito
-  const { isPurchasePage, setIsUserMenuOpen, searchQuery, isAuthenticated, setIsAuthenticated, userName, isUserMenuOpen, setSearchQuery } = useNavBarContext();
+
+  const { 
+    searchQuery,
+    setSearchQuery,
+    isUserMenuOpen,
+    setIsUserMenuOpen,
+    isAuthenticated,
+    userName,
+    isPurchasePage,
+    showLoginModal,
+    setShowLoginModal,
+    handleLogout
+  } = useNavBarContext();
+
   const {getTotalItems: cartCount, setIsCartOpen} = useCart();
+
   return (
     <nav className={styles.navbar}>
       <div className={styles.navbarContainer}>
@@ -58,10 +72,7 @@ const Navbar = () => {
                       <i className="fas fa-shopping-bag"></i> Mis Pedidos
                     </Link>
                     <button
-                      onClick={() => {
-                        setIsAuthenticated(false);
-                        setIsUserMenuOpen(false);
-                      }}
+                      onClick={handleLogout}
                       className={styles.logoutButton}
                     >
                       <i className="fas fa-sign-out-alt"></i> Cerrar Sesión
@@ -72,7 +83,7 @@ const Navbar = () => {
                     <a
                       href="#"
                       onClick={() => {
-                        setIsAuthenticated(true);
+                        setShowLoginModal(true);
                         setIsUserMenuOpen(false);
                       }}
                       className={styles.dropdownItem}
@@ -95,6 +106,8 @@ const Navbar = () => {
           </div>
         </div>
       </div>
+
+      {showLoginModal && <LoginModal />}
     </nav>
   );
 };
