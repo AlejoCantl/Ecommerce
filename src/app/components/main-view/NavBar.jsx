@@ -22,7 +22,7 @@ const Navbar = () => {
   } = useNavBarContext();
 
   const {getTotalItems: cartCount, setIsCartOpen} = useCart();
-
+  
   return (
     <nav className={styles.navbar}>
       <div className={styles.navbarContainer}>
@@ -69,7 +69,7 @@ const Navbar = () => {
                       data-readdy="true"
                       className={styles.dropdownItem}
                     >
-                      <i className="fas fa-shopping-bag"></i> Mis Pedidos
+                      <i className="fas fa-shopping-bag"></i> Mis Compras
                     </Link>
                     <button
                       onClick={handleLogout}
@@ -81,7 +81,6 @@ const Navbar = () => {
                 ) : (
                   <>
                     <a
-                      href="#"
                       onClick={() => {
                         setShowLoginModal(true);
                         setIsUserMenuOpen(false);
