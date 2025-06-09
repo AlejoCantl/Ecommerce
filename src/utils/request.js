@@ -5,14 +5,15 @@ export const fetchData = async (url, method = 'GET') => {
     if (!['GET', 'POST', 'PUT', 'DELETE', 'PATCH'].includes(method.toUpperCase())) {
       throw new Error(`Método HTTP no válido: ${method}`);
     }
+
     const response = await fetch(url, {
       method: method.toUpperCase(),
-      headers: method !== 'GET' ? { 'Content-Type': 'application/json' } : {}, // Solo enviar Content-Type para métodos que lo necesitan
+      headers: method !== 'GET' ? { 'Content-Type': 'application/json' } : {},
     });
 
-    if (!response.ok) {
-      throw new Error(`HTTP error! Status: ${response.status}`);
-    }
+    // if (!response.ok) {
+    //   throw new Error(`HTTP error! Status: ${response.status}`);
+    // }
 
     return await response.json();
   } catch (error) {
@@ -20,7 +21,6 @@ export const fetchData = async (url, method = 'GET') => {
     throw error;
   }
 };
-
 
 export const loginHandler = async (username, password) => {
   const url = 'http://localhost:8000/login';
@@ -114,6 +114,28 @@ export const cartHandler = async (cartItems, id_user) => {
       status: 'error',
       error: error.message,
       ok: false
+    };
+  }
+};
+
+export const purchaseMadeHandler = async (id_user) => {
+  try {
+    const url = `http://localhost:8000/purchases/${id_user}`;
+    const method = 'GET';
+    const response = await fetchData(url, method);
+    console.log('Response from purchaseMadeHandler:', response);
+    return {
+      status: 'ok', // Assume ok if no error
+      msg: 'Purchases retrieved successfully',
+      data: response.purchases || [],
+      ok: true,
+    };
+  } catch (error) {
+    console.error('Error during purchase made operation:', error);
+    return {
+      status: 'error',
+      error: error.message,
+      ok: false,
     };
   }
 };

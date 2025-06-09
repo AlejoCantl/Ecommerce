@@ -21,7 +21,7 @@ const Navbar = () => {
     handleLogout
   } = useNavBarContext();
 
-  const {nombre} = userName;
+  const {nombre, id_user} = userName;
   const {getTotalItems: cartCount, setIsCartOpen} = useCart();
   
   return (
@@ -66,7 +66,7 @@ const Navbar = () => {
                       <i className="fas fa-user-circle"></i> Mi Perfil
                     </Link>
                     <Link
-                      href="/views/purchasesMade"
+                      href={`/views/purchasesMade/${id_user}`}
                       data-readdy="true"
                       className={styles.dropdownItem}
                     >

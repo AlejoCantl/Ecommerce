@@ -3,7 +3,7 @@
 }
 .container {
   max-width: 1300px;
-  max-height: 600px;
+  max-height: auto;
   padding: 20px;
   background-color: #f4f4f4;
   border-radius: 10px;
@@ -22,6 +22,10 @@
   overflow-x: auto;
 }
 
+.dateHeader {
+  padding: 20px;
+}
+
 .productTable {
   width: 100%;
   border-collapse: collapse;
@@ -32,7 +36,7 @@
   border-radius: 12px 0 0 0;
 }
 
-.columns2 {
+.columns3 {
   border-radius: 0 12px 0 0;
 }
 
@@ -60,20 +64,21 @@
 }
 
 .productTable th:nth-child(2),
-.productTable th:nth-child(3) {
+.productTable th:nth-child(3),
+.productTable th:nth-child(4) {
     text-align: center;
     vertical-align: middle;
 }
 
-
-.productTable td:nth-child(2) {
+.productTable td:nth-child(2){
   font-weight: bold;
   color: #28a745;
   text-align: center;
   vertical-align: middle;
 }
 
-.productTable td:nth-child(3) {
+.productTable td:nth-child(3),
+.productTable td:nth-child(4) {
   font-weight: bold;
   color: #333;
   text-align: center;
@@ -88,9 +93,31 @@
 
 .fila{
   background-color: #fff;
+  max-width: 100%;
 }
 
 .fila td {
   height: 70px;
 }
+
+.totalMessage{
+  background-color: #fff;
+  border-radius: 0 0 0 12px;
+  padding: 25px;
+  height: 70px;
+}
+
+.totalAmount{
+  background-color: #fff;
+  border-radius: 0 0 12px 0;
+  padding: 25px;
+  height: 70px;
+}
+
+.tdFooterTable{
+  background-color: #fff;
+  padding: 25px;
+  height: 70px;
+}
+
 

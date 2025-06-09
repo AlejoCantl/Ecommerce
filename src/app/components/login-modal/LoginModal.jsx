@@ -21,18 +21,18 @@ export const LoginModal = () => {
       const loginData = await loginHandler(username, password);
 
       if (!loginData.ok) {
-        console.error('Error al iniciar sesión:', loginData.error || 'Error desconocido');
-        alert('Error al iniciar sesión. Por favor, intenta de nuevo.');
+        // console.error('Error al iniciar sesión:', loginData.error || 'Error desconocido');
+        alert('Error al iniciar sesión. Por favor, verifque sus credenciales.');
         return;
       }
 
       // Si el inicio de sesión es exitoso, actualiza el estado del contexto
-      console.log('Inicio de sesión exitoso:', loginData.data.msg);
       const { nombre, id } = loginData.data.user;
       console.log('Nombre de usuario:', nombre);
       handleLogin(nombre, id);
 
       setShowLoginModal(false);
+      alert('Inicio de sesión exitoso. Bienvenido, ' + nombre + '!');
     }catch (error) {
       console.error('Error en handleSubmit:', error);
     }
