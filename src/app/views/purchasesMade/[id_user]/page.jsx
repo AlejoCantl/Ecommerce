@@ -4,7 +4,7 @@ import PurchasedProducts from '../purchaseView';
 export default async function PurchasesMadePage({ params }) {
   const { id_user } = await params;
 
-  // Validate id_user
+  
   if (isNaN(id_user) || id_user <= 0) {
     return (
       <div className="container">

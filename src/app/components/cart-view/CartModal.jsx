@@ -75,6 +75,7 @@ const CartModal = () => {
                       src={item.imagen}
                       alt={item.nombre}
                       className={styles.cartItemImage}
+                      loading='lazy'
                     />
                     <div className={styles.cartItemDetails}>
                       <h4>{item.nombre}</h4>

@@ -31,6 +31,7 @@ const Products = ({ products, selectedCategory }) => {
                 className={styles.productImage}
                 sizes="(max-width: 400px) 100vw, 400px"
                 priority= {product.id <= 2} // Optimize LCP for first few images
+                loading={product.id <= 2 ? 'eager' : 'lazy'}
               />
             </div>
             <div className={styles.productDetails}>

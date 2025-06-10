@@ -4,7 +4,7 @@ import CartModal from '@/app/components/cart-view/CartModal';
 import Image from 'next/image';
 import { utcToZonedTime } from 'date-fns-tz';
 import { format } from 'date-fns';
-import { es } from 'date-fns/locale';
+
 
 const convertToColombiaTime = (dateString) => {
   return utcToZonedTime(dateString, 'America/Bogota');
@@ -89,6 +89,7 @@ export default function PurchasedProducts({ purchases }) {
                                 src={product.imagen}
                                 alt={product.nombre}
                                 className={styles.productImage}
+                                loading='lazy'
                               />
                               {product.nombre}
                             </td>
