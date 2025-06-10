@@ -90,13 +90,13 @@ const Navbar = () => {
                     <div className={styles.userInfo}>
                       <p>Hola, {nombre}</p>
                     </div>
-                    <Link
+                    {/* <Link
                       href="https://readdy.ai/home/eee6cda2-75a6-42e3-a8e4-a928e00069c0/8163e82a-1ace-4439-93e6-692486cd4a9e"
                       data-readdy="true"
                       className={styles.dropdownItem}
                     >
                       <i className="fas fa-user-circle"></i> Mi Perfil
-                    </Link>
+                    </Link> */}
                     <Link
                       href={id_user ? `/views/purchasesMade/${id_user}` : '#'}
                       data-readdy="true"
@@ -123,9 +123,9 @@ const Navbar = () => {
                     >
                       <i className="fas fa-sign-in-alt"></i> Iniciar Sesión
                     </a>
-                    <a href="#" className={styles.dropdownItem}>
+                    {/* <a href="#" className={styles.dropdownItem}>
                       <i className="fas fa-user-plus"></i> Registrarse
-                    </a>
+                    </a> */}
                   </>
                 )}
               </div>
