@@ -58,7 +58,7 @@ const Navbar = () => {
     <nav className={styles.navbar}>
       <div className={styles.navbarContainer}>
         <div className={styles.logo}>
-          <Link href={'/'}><h1>TechStore</h1></Link>
+          <Link href={'/'}><h1>Infinity/Tech</h1></Link>
         </div>
         <div className={styles.searchBar}>
           {isPurchasePage && (
