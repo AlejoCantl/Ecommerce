@@ -23,7 +23,7 @@ export const fetchData = async (url, method = 'GET') => {
 };
 
 export const loginHandler = async (username, password) => {
-  const url = 'http://localhost:8000/login';
+  const url = 'https://apiecommerce-production-bee3.up.railway.app/login';
   const method = 'POST';
   const body = JSON.stringify({ 
     nombre_usuario: username, 
@@ -59,7 +59,7 @@ export const loginHandler = async (username, password) => {
 };
 
 export const cartHandler = async (cartItems, id_user) => {
-  const url = 'http://localhost:8000/cart';
+  const url = 'https://apiecommerce-production-bee3.up.railway.app/cart';
   const method = 'POST';
 
   // Ensure cartItems is an array and add id_user to each item if not present
@@ -120,7 +120,7 @@ export const cartHandler = async (cartItems, id_user) => {
 
 export const purchaseMadeHandler = async (id_user) => {
   try {
-    const url = `http://localhost:8000/purchases/${id_user}`;
+    const url = `https://apiecommerce-production-bee3.up.railway.app/purchases/${id_user}`;
     const method = 'GET';
     const response = await fetchData(url, method);
     console.log('Response from purchaseMadeHandler:', response);

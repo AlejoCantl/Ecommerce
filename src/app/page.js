@@ -10,11 +10,11 @@ export default async function Home() {
   let products = [];
   let categories = [];
   try {
-    products = await fetchData('http://localhost:8000/products', 'GET', {
+    products = await fetchData('https://apiecommerce-production-bee3.up.railway.app/products', 'GET', {
       next: { revalidate: 60 }, // Incremental Static Regeneration (ISR)
     });
 
-    categories = await fetchData('http://localhost:8000/categories', 'GET', {
+    categories = await fetchData('https://apiecommerce-production-bee3.up.railway.app/categories', 'GET', {
       next: { revalidate: 60 }, // Incremental Static Regeneration (ISR)
     });
     categories = ['Todos', ...new Set(categories.map(category => category.nombre))];
